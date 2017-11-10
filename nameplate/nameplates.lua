@@ -66,35 +66,10 @@
 
         plate:SetFrameLevel(1)
 
-        name:SetFont(STANDARD_TEXT_FONT, 12)
-        name:ClearAllPoints()
-        name:SetPoint('BOTTOMRIGHT', plate, 'TOPRIGHT', -4, -16)
-        name:SetJustifyH'RIGHT'
-
-        health:SetStatusBarTexture''
-        health:SetFrameLevel(1)
-
         health.new = CreateFrame('StatusBar', nil, health)
-        health.new:SetAllPoints()
-        health.new:SetStatusBarTexture(TEXTURE)
-        health.new:SetFrameLevel(1)
-
-        border:SetVertexColor(.2, .2, .2)
-        border:SetDrawLayer'OVERLAY'
-
-        level:ClearAllPoints()
-        level:SetPoint('LEFT', health, 'RIGHT', -2, 0)
-        level:SetFont(STANDARD_TEXT_FONT, 11)
-        level:SetJustifyH'LEFT'
-
-        plate.bg = plate:CreateTexture(nil, 'BACKGROUND')
-        plate.bg:SetPoint('TOPLEFT', health.new, -1, 1)
-        plate.bg:SetPoint('BOTTOMRIGHT', health.new, 1, -1)
-        plate.bg:SetTexture[[Interface\Tooltips\UI-Tooltip-Background]]
-        plate.bg:SetVertexColor(0, 0, 0, 1)
 
         plate.cast = CreateFrame('StatusBar', nil, plate)
-        plate.cast:SetStatusBarTexture(TEXTURE)
+        -- plate.cast:SetStatusBarTexture(TEXTURE)
         plate.cast:SetStatusBarColor(1, .4, 0)
         plate.cast:SetBackdrop(BACKDROP)
         plate.cast:SetBackdropColor(0, 0, 0)

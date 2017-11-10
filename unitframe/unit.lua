@@ -18,26 +18,11 @@
     orig.TextStatusBar_UpdateTextString    = TextStatusBar_UpdateTextString
     orig.UIOptionsFrame_UpdateDependencies = UIOptionsFrame_UpdateDependencies
 
-    PlayerFrameBackground.bg = PlayerFrame:CreateTexture(nil, 'ARTWORK')
-    PlayerFrameBackground.bg:SetPoint('TOPLEFT', PlayerFrameBackground)
-    PlayerFrameBackground.bg:SetPoint('BOTTOMRIGHT', PlayerFrameBackground, 0, 22)
-    PlayerFrameBackground.bg:SetVertexColor(colour.r, colour.g, colour.b, 1)
-    PlayerFrameBackground.bg:SetTexture(NAME_TEXTURE)
-    PlayerFrameBackground.bg:SetTexCoord(1, 0, 0, 1)
-
     PlayerFrame.status = PlayerFrameTexture:GetParent():CreateFontString(nil, 'OVERLAY')
     PlayerFrame.status:SetFont(STANDARD_TEXT_FONT, 12, 'OUTLINE')
     PlayerFrame.status:SetShadowOffset(0, 0)
     PlayerFrame.status:SetTextColor(1, 0, 0)
     PlayerFrame.status:SetPoint('CENTER', PlayerFrameHealthBar, 0, -5)
-
-    PlayerFrameHealthBar:SetBackdrop(BACKDROP)
-    PlayerFrameHealthBar:SetBackdropColor(0, 0, 0, .6)
-    PlayerFrameHealthBar:SetStatusBarTexture(TEXTURE)
-
-    PlayerFrameManaBar:SetBackdrop(BACKDROP)
-    PlayerFrameManaBar:SetBackdropColor(0, 0, 0, .6)
-    PlayerFrameManaBar:SetStatusBarTexture(TEXTURE)
 
     PlayerPVPIcon:SetHeight(48) PlayerPVPIcon:SetWidth(48)
     PlayerPVPIcon:ClearAllPoints()
@@ -64,17 +49,6 @@
     TargetPVPIcon:SetPoint('CENTER', TargetFrame, 'RIGHT', -42, 16)
     TargetPVPIcon:SetDrawLayer('OVERLAY', 7)
 
-    TargetFrameNameBackground:SetTexture(NAME_TEXTURE)
-    TargetFrameNameBackground:SetDrawLayer'BORDER'
-
-    TargetFrameHealthBar:SetBackdrop(BACKDROP)
-    TargetFrameHealthBar:SetBackdropColor(0, 0, 0, .6)
-    TargetFrameHealthBar:SetStatusBarTexture(TEXTURE)
-
-    TargetFrameManaBar:SetBackdrop(BACKDROP)
-    TargetFrameManaBar:SetBackdropColor(0, 0, 0, .6)
-    TargetFrameManaBar:SetStatusBarTexture(TEXTURE)
-
     PlayerFrameGroupIndicator:SetAlpha(0)
 
     PlayerHitIndicator:SetText(nil)
@@ -85,10 +59,6 @@
 
     TargetLevelText:SetJustifyH'LEFT'
     TargetLevelText:SetPoint('LEFT', TargetFrameTextureFrame, 'CENTER', 56, -16)
-
-    TargetofTargetHealthBar:SetStatusBarTexture(TEXTURE)
-
-    TargetofTargetManaBar:SetStatusBarTexture(TEXTURE)
 
     TargetofTargetName:SetHeight(30)
     TargetofTargetName:ClearAllPoints()
@@ -240,31 +210,7 @@
                     return
     			else
                     PlayerFrame.status:SetText''
-                    if sb:GetName() == 'MainMenuExpBar' then
-                        string:SetPoint('CENTER', sb) string:SetJustifyH'CENTER'
-                        if GetCVar'modValue' == '1' then
-                            if ReputationWatchBar:IsShown() then
-                                local rname, _, rmin, rmax, rv = GetWatchedFactionInfo()
-                                MainMenuExpBar.rep:SetText(rname..': '..true_format((rv - rmin))..' / '..true_format((rmax - rmin))..'    ')
-                                string:SetText('—     XP: '..true_format(v)..' / '..true_format(max))
-                                string:SetPoint('CENTER', (string:GetWidth()/2) - 8, 25)
-                            else
-                                MainMenuExpBar.rep:SetText''
-                                string:SetText(true_format(v)..' / '..true_format(max))
-                            end
-                        else
-                            if ReputationWatchBar:IsShown() then
-                                local rname, standing, rmin, rmax, rv = GetWatchedFactionInfo()
-                                local rperc = math.floor((rv - rmin)/(rmax - rmin)*100)
-                                MainMenuExpBar.rep:SetText(rname..': '..percent..'% into '.._G['FACTION_STANDING_LABEL'..standing]..'    ')
-                                string:SetText('—     XP: '..percent..'%')
-                                string:SetPoint('CENTER', (string:GetWidth()/2) - 8, 25)
-                            else
-                                MainMenuExpBar.rep:SetText''
-                                string:SetText(percent..'%')
-                            end
-                        end
-                    elseif sb:GetName() == 'PlayerFrameManaBar'
+                    if sb:GetName() == 'PlayerFrameManaBar'
                     and (pp == 1 or pp == 2 or pp == 3) then
                         string:SetText(v)
                     else
