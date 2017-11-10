@@ -54,14 +54,6 @@
     )
     GameTooltipStatusBar:SetBackdropColor(0, 0, 0)
 
-    GameTooltipHeaderText:SetFont(STANDARD_TEXT_FONT, 13)
-    GameTooltipHeaderText:SetShadowOffset(.7, -.7)
-    GameTooltipHeaderText:SetShadowColor(0, 0, 0, 1)
-
-    GameTooltipText:SetFont(STANDARD_TEXT_FONT, 12)
-    GameTooltipText:SetShadowOffset(.7, -.7)
-    GameTooltipText:SetShadowColor(0, 0, 0,1)
-
     if _G['modui_tooltip']:GetChecked() == 1 then
         parent:EnableMouse(true)
         parent:SetBackdropColor(0, 1, 0, 1)

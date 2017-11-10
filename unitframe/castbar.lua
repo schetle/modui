@@ -2,13 +2,13 @@
 
     if tonumber(GetCVar'modUnitFrame') == 0 then return end
 
-    local TEXTURE = [[Interface\AddOns\modui\statusbar\texture\sb.tga]]
+    local TEXTURE = [[Interface\TargetingFrame\UI-TargetingFrame-BarFill]] 
     local BACKDROP = {bgFile = [[Interface\Tooltips\UI-Tooltip-Background]],}
     local f = CreateFrame'Frame'
 
     local parent = CreateFrame('Frame', 'modCastbarParent', UIParent)
     parent:SetWidth(142)
-    parent:SetHeight(8)
+    parent:SetHeight(12)
     parent:SetPoint('TOP', TargetFrame, 'BOTTOM', -11, -28)
     parent:SetMovable(true)
     parent:EnableMouse(true)
@@ -31,7 +31,7 @@
     TargetFrame.cast.text:SetTextColor(1, 1, 1)
     TargetFrame.cast.text:SetFont(STANDARD_TEXT_FONT, 12, 'OUTLINE')
     TargetFrame.cast.text:SetShadowOffset(0, 0)
-    TargetFrame.cast.text:SetPoint('TOPLEFT', TargetFrame.cast, 'BOTTOMLEFT', 2, -5)
+    TargetFrame.cast.text:SetPoint('CENTER', TargetFrame.cast, 'CENTER', 0, 1)
 
     TargetFrame.cast.timer = TargetFrame.cast:CreateFontString(nil, 'OVERLAY')
     TargetFrame.cast.timer:SetTextColor(1, 1, 1)
